@@ -1,0 +1,281 @@
+/* ========================
+   1. VARIABLES & RESET
+   ======================== */
+:root {
+    /* Corporate Teal Palette */
+    --primary: #00897b;        /* Teal matched to logo style */
+    --primary-dark: #00695c;
+    --secondary: #263238;      /* Dark Corporate Grey */
+    --light-bg: #f5f9f9;
+    --white: #ffffff;
+    --text-color: #374151;
+    --light-text: #6b7280;
+    
+    --border-radius: 6px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+    font-size: 16px;
+}
+
+/* ========================
+   2. UTILITIES
+   ======================== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 80px 0; }
+.bg-light { background-color: var(--light-bg); }
+.section-label {
+    text-transform: uppercase;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+h2 {
+    font-size: 2.2rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+.section-header.center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+.btn-primary { background-color: var(--primary); color: var(--white); }
+.btn-primary:hover { background-color: var(--primary-dark); }
+
+/* ========================
+   3. HEADER, NAV & LOGO
+   ======================== */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 12px 0;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+/* Custom CSS Logo */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+.logo-box {
+    width: 45px;
+    height: 45px;
+    background-color: #0d4d4d; /* Dark Teal from photo */
+    color: #fff;
+    font-family: 'Playfair Display', serif; /* Elegant serif for the S */
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px; /* Slight round on corners */
+    box-shadow: 2px 2px 0px var(--primary); /* Graphic effect */
+}
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+.company-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    letter-spacing: 0.5px;
+}
+
+/* Nav Menu */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+.nav-menu a:hover { color: var(--primary); }
+.btn-nav {
+    border: 1px solid var(--primary);
+    color: var(--primary) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+.btn-nav:hover { background-color: var(--primary); color: var(--white) !important; }
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+/* ========================
+   4. HERO SECTION
+   ======================== */
+.hero {
+    height: 85vh;
+    min-height: 500px;
+    background: linear-gradient(135deg, #16363c 0%, #00767c 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+.hero-content { position: relative; z-index: 2; max-width: 700px; }
+.hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; line-height: 1.2; }
+.hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.95; font-weight: 300; }
+
+/* ========================
+   5. SECTIONS (About, Services, Why Us)
+   ======================== */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.stat-card {
+    background: var(--light-bg);
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+.stat-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.service-card {
+    background: var(--white);
+    padding: 35px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 4px solid transparent;
+}
+.service-card:hover { transform: translateY(-5px); border-bottom-color: var(--primary); }
+.icon-box {
+    background: #e0f2f1;
+    color: var(--primary);
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; margin-bottom: 20px; font-size: 1.5rem;
+}
+.service-card h3 { font-size: 1.3rem; color: var(--secondary); margin-bottom: 10px; }
+.service-card p { color: var(--light-text); font-size: 0.95rem; }
+
+.why-us-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.why-list { list-style: none; margin-top: 30px; }
+.why-list li { display: flex; gap: 15px; margin-bottom: 25px; }
+.why-list i { color: var(--primary); font-size: 1.3rem; margin-top: 3px; }
+.why-image {
+    background-color: var(--secondary);
+    height: 400px;
+    border-radius: var(--border-radius);
+    background-image: radial-gradient(circle at 30% 50%, var(--primary) 0%, transparent 40%);
+    opacity: 0.9;
+}
+
+/* ========================
+   6. CONTACT SECTION (Modified)
+   ======================== */
+.contact-section { background-color: #fcfcfc; }
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Info on Left, Map on Right */
+    gap: 0;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* For Map corners */
+}
+.contact-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+.info-item { margin-bottom: 30px; display: flex; gap: 15px; }
+.info-item i {
+    font-size: 1.2rem;
+    color: var(--primary);
+    background: #e0f2f1;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; flex-shrink: 0;
+}
+.info-item h5 { font-size: 1rem; color: var(--secondary); margin-bottom: 5px; }
+.info-item a, .info-item p { color: var(--light-text); text-decoration: none; font-size: 0.95rem; }
+.info-item a:hover { color: var(--primary); }
+
+/* Map Style */
+.map-container {
+    height: 400px;
+    background-color: #eee;
+}
+
+/* ========================
+   7. FOOTER
+   ======================== */
+footer { background-color: var(--secondary); color: #cbd5e1; padding: 60px 0 20px 0; }
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-col h3 { color: var(--white); margin-bottom: 15px; }
+.footer-col h4 { color: var(--white); margin-bottom: 15px; font-size: 1.1rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: #cbd5e1; text-decoration: none; transition: var(--transition); }
+.footer-col ul li a:hover { color: var(--primary); }
+.footer-bottom { text-align: center; padding-top: 20px; font-size: 0.9rem; }
+
+/* ========================
+   8. RESPONSIVE MEDIA QUERIES
+   ======================== */
+@media (max-width: 992px) {
+    .about-grid, .why-us-grid, .contact-wrapper { grid-template-columns: 1fr; }
+    .why-image { display: none; }
+    .map-container { height: 300px; }
+}
+@media (max-width: 768px) {
+    .mobile-toggle { display: block; }
+    .nav-menu {
+        position: absolute; top: 100%; left: 0; width: 100%;
+        background-color: var(--white); padding: 20px 0;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        display: none;
+    }
+    .nav-menu.active { display: block; }
+    .nav-menu ul { flex-direction: column; gap: 20px; }
+    .hero h1 { font-size: 2.2rem; }
+    .footer-content { grid-template-columns: 1fr; }
+    .company-name { font-size: 0.9rem; } /* Smaller font on mobile */
+}
